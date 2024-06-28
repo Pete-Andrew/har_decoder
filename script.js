@@ -46,17 +46,21 @@ function extractImagesFromHar(harFilePath, outputDir) {
             const response = entry.response;
             const content = response.content;
 //A media type (also known as a Multipurpose Internet Mail Extensions or MIME type) indicates the nature and format of a document, file, or assortment of bytes.
-// if the content is a media type && if the media type starts with 'image/' then split the.... 
+//If the content is a media type && if the media type starts with 'image/' then split the MIME type string into an array of substrings using the / character as the delimiter. 
+//For example: image/png becomes ['image', 'png']
 //startsWith() method returns true if a string starts with a specified string.
             if (content.mimeType && content.mimeType.startsWith('image/')) {
                 const base64Data = content.text;
                 const extension = content.mimeType.split('/')[1]; // e.g., 'png', 'jpeg'
 
-                // Decode the base64 data and write the file
+                //Decode the base64 data and write the file
+                //Buffer is a way to store and manipulate binary data in Node.js, Buffer.from() method creates a new buffer filled with the specified string, array, or buffer. 
+                //syntax Buffer.from(obj, encoding);
+                //Buffers are useful for handling binary data, which is exactly what image data is after it has been decoded from base64.
                 const buffer = Buffer.from(base64Data, 'base64');
                 const outputFilePath = path.join(outputDir, `image_${index}.${extension}`);
 
-                // writes the file to the output folder
+                // writes the buffer to the specified file path e.g. the output folder
                 fs.writeFile(outputFilePath, buffer, (writeErr) => {
                     if (writeErr) {
                         console.error(`Error writing file: ${writeErr}`);
