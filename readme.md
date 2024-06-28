@@ -1,5 +1,7 @@
-# har file converter  
-# useful for batch downloading images, e.g from desktop browser websites like instagram.   
+# HAR file converter  
+# A Useful tool for batch downloading images   
+# (e.g from desktop browser websites like instagram).     
+# Runs from desktop using node.js    
 
 This is a tool for converting .har files downloaded from the console into the component images the .har file contains.  
 It acts like an unzip tool by converting the encoded images within the .har back into image files (e.g. jpg, png, etc.)  
