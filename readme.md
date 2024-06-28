@@ -22,8 +22,7 @@ To download a .har file:
 Once this is done:
 - Place the .har file in the 'inputFiles' folder included with this code.  
 - To run the tool open the terminal in vs code and enter 'node script.js'  
-- This will then unpack the .har file, parse the contents into a JSON object   
-- Then export the images into the 'outputFiles' folder.   
+- This will then unpack the .har file, parse the contents into a JSON object and then export the images into the 'outputFiles' folder.   
 
 I have included a test .har file as an example.  
 
